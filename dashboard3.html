@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPulse Dashboard</title>
+    <style>
+        /* Global Styles and Reset */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7; /* Slightly off-white background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            padding: 20px;
+            flex-grow: 1;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Header Text */
+        .header-title {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* Buddy's Status Card */
+        .status-card {
+            background-color: #fff8e1; /* Light Yellow */
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ffc107; /* Amber/Orange border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .status-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .status-card-meta {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .status-card-meta .pet-info {
+            color: #ffc107; /* Highlighted pet info */
+            font-weight: 700;
+            margin-left: 5px;
+        }
+
+        /* Quick Actions Section */
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .quick-actions-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .action-button {
+            flex-basis: 32%;
+            background-color: white;
+            padding: 15px 10px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .action-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+            /* Using basic symbols for icons as we don't have an icon library */
+        }
+        .action-icon.vet { color: #4CAF50; }
+        .action-icon.records { color: #4CAF50; }
+        .action-icon.pets { color: #4CAF50; }
+
+        /* Upcoming Section */
+        .upcoming-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .upcoming-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .upcoming-item.blue-border {
+            border-left: 5px solid #4285F4; /* Blue */
+        }
+
+        .upcoming-item.green-border {
+            border-left: 5px solid #4CAF50; /* Green */
+        }
+
+        .upcoming-details {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .upcoming-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .upcoming-date {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .upcoming-view-btn {
+            color: #4CAF50;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 5px 10px;
+        }
+
+        /* Footer/Navigation Bar */
+        .footer-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            background-color: #fff;
+            position: sticky; /* Stick to the bottom */
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-nav-item {
+            color: #ccc; /* Light grey for inactive icons */
+            font-size: 24px; /* Using font size to simulate icon size */
+        }
+        .footer-nav-item:first-child {
+            color: #4CAF50; /* Active green color (Home) */
+        }
+
+        /* Utility classes to simulate icons without real icons */
+        .icon-home::before { content: '🏠'; }
+        .icon-heart::before { content: '♥'; }
+        .icon-briefcase::before { content: '💼'; }
+        .icon-chat::before { content: '💬'; }
+
+        .icon-alert::before { content: '❗'; }
+        .icon-records::before { content: '📋'; }
+        .icon-pets::before { content: '💚'; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="header-title">Hello, Pet Lover!</h1>
+        <p class="header-subtitle">Ready to check on Buddy?</p>
+
+        <div class="status-card">
+            <div class="status-card-title">
+                Buddy's Status
+                <span class="status-card-meta">
+                    <span class="pet-info">Dog</span> | <span class="pet-info">2 Years</span>
+                </span>
+            </div>
+            <p class="status-card-meta">Needs a walk in 30 minutes!</p>
+        </div>
+
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="quick-actions-grid">
+            <a href="#" class="action-button">
+                <div class="action-icon vet icon-alert"></div>
+                Book a service
+            </a>
+            <a href="#" class="action-button">
+                <div class="action-icon records icon-records"></div>
+                Pet Feed & Tips
+            </a>
+            <a href="#" class="action-button">
+                <div class="action-icon pets icon-pets"></div>
+                My Pets
+            </a>
+        </div>
+
+        <h2 class="section-title">Upcoming</h2>
+        <div class="upcoming-list">
+            <div class="upcoming-item blue-border">
+                <div class="upcoming-details">
+                    <div class="upcoming-title">Grooming Session (Milo)</div>
+                    <div class="upcoming-date">Wednesday, 3:00 PM</div>
+                </div>
+                <a href="#" class="upcoming-view-btn">View</a>
+            </div>
+
+            <div class="upcoming-item green-border">
+                <div class="upcoming-details">
+                    <div class="upcoming-title">Vaccination (Buddy)</div>
+                    <div class="upcoming-date">12/10/2024</div>
+                </div>
+                <a href="#" class="upcoming-view-btn">View</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-nav">
+        <div class="footer-nav-item icon-home"></div>
+        <div class="footer-nav-item icon-heart"></div>
+        <div class="footer-nav-item icon-briefcase"></div>
+        <div class="footer-nav-item icon-chat"></div>
+    </div>
+
+</body>
+</html>

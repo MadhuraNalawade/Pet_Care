@@ -1,0 +1,215 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPulse Clone</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            padding: 20px;
+            flex-grow: 1;
+            max-width: 600px;
+            margin: 0 auto; 
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        
+        .header {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .pet {
+            color: #4CAF50; 
+        }
+
+        .header .pulse {
+            color: #FFC107; /* Yellow/Amber */
+        }
+
+        /* Hero Text */
+        .hero-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Pet Selection Grid */
+        .pet-selection {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+            grid-template-rows: auto auto auto; /* Auto rows */
+            gap: 10px; /* Space between grid items */
+            margin-bottom: 30px;
+        }
+
+        .pet-button {
+            height: 100px; /* Standard height for all blocks */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* Specific Grid Layout for DOG */
+        .pet-button.dog {
+            background-color: #4267B2; /* Blue */
+            grid-column: 1 / span 1; /* Start at col 1, span 1 column */
+            grid-row: 1 / span 2; /* Start at row 1, span 2 rows */
+            height: auto; /* Allow content to define height, but grid spans 2 rows */
+        }
+
+        /* Other Pet Button Colors */
+        .pet-button.cat { background-color: #FF5722; /* Orange */ }
+        .pet-button.bird { background-color: #D32F2F; /* Red */ }
+        .pet-button.fish { background-color: #8B0000; /* Dark Red */ }
+        .pet-button.rabbit { background-color: #6A1B9A; /* Purple */ }
+        .pet-button.hamster { background-color: #37474F; /* Dark Gray/Blue */ }
+        .pet-button.horse { background-color: #00BFA5; /* Teal/Green */ }
+        .pet-button.turtle { background-color: #7B1FA2; /* Medium Purple */ }
+
+
+        /* DOG button needs to push the others into the correct rows/columns */
+        /* CAT, FISH, BIRD, RABBIT occupy the remaining slots in the first two rows */
+        .pet-button.cat {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+        .pet-button.bird {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+        .pet-button.fish {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+        .pet-button.rabbit {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+        }
+        /* HAMSTER, HORSE, TURTLE occupy the third row */
+        .pet-button.hamster {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+        }
+        .pet-button.horse {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+        }
+        .pet-button.turtle {
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+        }
+
+
+        /* Get Started Button */
+        .get-started-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer/Navigation Bar */
+        .footer-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            background-color: #fff;
+            position: sticky; /* Sticky or fixed at the bottom */
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-nav-item {
+            color: #ccc; /* Light grey for inactive icons */
+            font-size: 24px; /* Using font size to simulate icon size */
+            /* In a real app, this would be an SVG or Icon Font */
+        }
+        .footer-nav-item:first-child {
+            color: #4CAF50; /* Active green color */
+        }
+
+        /* Utility classes to simulate icons without real icons */
+        /* Using basic symbols/text since we can't use real icon fonts */
+        .icon-home::before { content: '🏠'; font-size: 20px; }
+        .icon-heart::before { content: '♥'; font-size: 20px; }
+        .icon-chat::before { content: '💬'; font-size: 20px; }
+        .icon-time::before { content: '🕑'; font-size: 20px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <span class="pet">Pet</span><span class="pulse">Pulse</span>
+        </div>
+
+        <h1 class="hero-title">Your Pet's Best Friend.</h1>
+        <p class="hero-subtitle">
+            Manage appointments, health, and happiness all in one place.
+        </p>
+
+        <div class="pet-selection">
+            <div class="pet-button dog">DOG</div>
+            <div class="pet-button cat">CAT</div>
+            <div class="pet-button bird">BIRD</div>
+            <div class="pet-button fish">FISH</div>
+            <div class="pet-button rabbit">RABBIT</div>
+            <div class="pet-button hamster">HAMSTER</div>
+            <div class="pet-button horse">HORSE</div>
+            <div class="pet-button turtle">TURTLE</div>
+        </div>
+
+        <div class="get-started-button">
+            Get Started
+        </div>
+    </div>
+
+    <div class="footer-nav">
+        <div class="footer-nav-item icon-home"></div>
+        <div class="footer-nav-item icon-heart"></div>
+        <div class="footer-nav-item icon-chat"></div>
+        <div class="footer-nav-item icon-time"></div>
+    </div>
+
+</body>
+</html>

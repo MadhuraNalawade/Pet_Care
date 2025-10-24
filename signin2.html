@@ -1,0 +1,148 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Back Login</title>
+    <style>
+        /* Global Styles and Reset */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            padding: 30px 20px;
+            flex-grow: 1;
+            max-width: 400px;
+            margin: 0 auto; /* Center content on wider screens */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Header Text */
+        .header-title {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Form Inputs */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 15px 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box; /* Include padding/border in width */
+            outline: none;
+            /* Match the light border and clean look */
+            border-color: #e0e0e0;
+        }
+
+        /* Sign In Button */
+        .sign-in-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sign Up Link/Text */
+        .sign-up-prompt {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .sign-up-link {
+            color: #4CAF50; /* Green */
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Footer/Navigation Bar */
+        .footer-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            background-color: #fff;
+            position: sticky; /* Stick to the bottom */
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-nav-item {
+            color: #ccc; /* Light grey for inactive icons */
+            font-size: 24px; /* Using font size to simulate icon size */
+        }
+        .footer-nav-item:first-child {
+            color: #4CAF50; /* Active green color (Home) */
+        }
+
+        /* Utility classes to simulate icons without real icons */
+        .icon-home::before { content: '🏠'; font-size: 20px; }
+        .icon-heart::before { content: '♥'; font-size: 20px; }
+        .icon-briefcase::before { content: '💼'; font-size: 20px; }
+        .icon-chat::before { content: '💬'; font-size: 20px; }
+        .icon-bell::before { content: '🔔'; font-size: 20px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="header-title">Welcome Back</h1>
+
+        <form>
+            <div class="form-group">
+                <input type="email" class="text-input" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+                <input type="password" class="text-input" placeholder="Password">
+            </div>
+
+            <button type="submit" class="sign-in-button">
+                Sign In
+            </button>
+        </form>
+
+        <p class="sign-up-prompt">
+            Don't have an account? <a href="#" class="sign-up-link">Sign Up</a>
+        </p>
+    </div>
+
+    <div class="footer-nav">
+        <div class="footer-nav-item icon-home"></div>
+        <div class="footer-nav-item icon-heart"></div>
+        <div class="footer-nav-item icon-briefcase"></div>
+        <div class="footer-nav-item icon-chat"></div>
+        <div class="footer-nav-item icon-bell"></div>
+    </div>
+
+</body>
+</html>
